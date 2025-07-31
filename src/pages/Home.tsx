@@ -1,5 +1,14 @@
 export default function Home() {
     return (
-        <section></section>
+        <main>
+            <table>
+                <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Имя</th>
+                </tr>
+                </thead>
+            </table>
+        </main>
     )
 }

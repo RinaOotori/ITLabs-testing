@@ -17,6 +17,7 @@
   --primary-color-succsess-button: #4CAF50;
   --primary-color-delete-button: #EC5937;
   --primary-color-close-button: #737373;
+  --primary-color-filter-button: #C4C4C4;
 
   --primary-color-main-font: #4E3000;
   --primary-color-list-font: black;
@@ -43,6 +44,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Open Sans', serif;
+  font-weight: normal;
 }
 
 h1 {

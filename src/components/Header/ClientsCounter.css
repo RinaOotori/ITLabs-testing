@@ -6,4 +6,5 @@
     text-align: right;
     color: var(--primary-color-main-font);
     display: table-cell;
+    font-weight: bold;
 }
