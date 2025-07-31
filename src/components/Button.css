@@ -1,0 +1,18 @@
+#button{
+    max-width: 200px;
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+    height: var(--primary-input-height);
+    transition: background-color 0.3s;
+    box-shadow: var(--primary-box-shadow);
+}
+
+#button[value="Добавить"]:hover{
+    background-color: color-mix(in hsl, var(--primary-color-succsess-button), black 10%);
+}
+
+#button[value="Добавить"]{
+    background-color: var(--primary-color-succsess-button);
+}
+

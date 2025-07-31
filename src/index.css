@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,8 +21,11 @@
   --primary-color-main-font: #4E3000;
   --primary-color-list-font: black;
 
-  --primary-color-present-visitor: #4E3000;
-  --primary-color-absent-visitor: black;
+  --primary-color-present-visitor: #80BB00;
+  --primary-color-absent-visitor: #EC5937;
+
+  --primary-input-height: 42px;
+  --primary-box-shadow:  0 1px 3px #c1c1c1;
 }
 
 a {
@@ -57,13 +60,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
