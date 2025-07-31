@@ -11,6 +11,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-background-color: white;
+
+  --primary-color-succsess-button: #4CAF50;
+  --primary-color-delete-button: #EC5937;
+  --primary-color-close-button: #737373;
+
+  --primary-color-main-font: #4E3000;
+  --primary-color-list-font: black;
+
+  --primary-color-present-visitor: #4E3000;
+  --primary-color-absent-visitor: black;
 }
 
 a {
