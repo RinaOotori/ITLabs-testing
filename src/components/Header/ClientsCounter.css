@@ -8,3 +8,11 @@
     display: table-cell;
     font-weight: bold;
 }
+
+#clients_counter #present{
+    color: var(--primary-color-present-visitor);
+}
+
+#clients_counter #absent{
+    color: var(--primary-color-absent-visitor);
+}

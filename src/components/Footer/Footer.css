@@ -1,14 +1,11 @@
 footer {
-    height: 10%;
+    height: 75px;
     box-sizing: border-box;
-    width: 100vw;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 1.5% 2.44%;
+    width: 100%;
     font-size: 26px;
     color: var(--primary-color-main-font);
-    margin-top: auto;
-    margin-bottom: auto;
     font-weight: bold;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 0;
 }

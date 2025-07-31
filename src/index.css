@@ -1,5 +1,4 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,6 +26,7 @@
 
   --primary-input-height: 42px;
   --primary-box-shadow:  0 1px 3px #c1c1c1;
+  --primary-circles-size: 40px;
 }
 
 a {
@@ -42,8 +42,8 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  min-width: 1024px;
+  min-height: 100px;
   font-family: 'Open Sans', serif;
   font-weight: normal;
 }

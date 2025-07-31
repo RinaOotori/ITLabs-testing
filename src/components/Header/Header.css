@@ -1,15 +1,13 @@
 header{
     background-color: white;
-    height: 15%;
-    width: 100vw;
+    height: 75px;
+    width: 100%;
     box-sizing: border-box;
     max-width: 2048px;
-    position: fixed;
-    top: 0;
-    padding: 1.5% 2.44%;
     min-width: 1024px;
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 30px;
 }
 
 header .logo{
