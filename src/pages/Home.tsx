@@ -41,16 +41,15 @@ export default function Home() {
                                 <td>{clients['fullName']}</td>
                                 <td>{clients['company']}</td>
                                 <td>{clients['group']}</td>
-                                <td ><div id={!clients['present'] ? 'absent' : 'present'}></div></td>
-
+                                <td>
+                                    <div id={!clients['present'] ? 'absent' : 'present'}></div>
+                                </td>
                             </tr>
                         )
-
                     })
                 }
                 </tbody>
             </table>
-
         </main>
     )
 }

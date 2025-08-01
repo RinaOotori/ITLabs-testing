@@ -6,6 +6,4 @@ footer {
     color: var(--primary-color-main-font);
     font-weight: bold;
     margin-top: 30px;
-    position: absolute;
-    bottom: 0;
 }
