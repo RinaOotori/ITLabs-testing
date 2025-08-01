@@ -26,8 +26,25 @@
     height: 50vh;
     transform: scale(0.5);
     transition: 0.3s all;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .modal_content.active{
     transform: scale(1);
+}
+
+#close_button{
+    height: 40px;
+    text-align: right;
+}
+
+#close_button img{
+    height: 100%;
+    transition: 0.3s;
+}
+
+#close_button img:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }

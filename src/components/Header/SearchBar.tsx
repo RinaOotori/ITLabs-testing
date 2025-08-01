@@ -1,5 +1,5 @@
 import './SearchBar.css'
-import Button from "../Button.tsx";
+import Button from "../Button/Button.tsx";
 import {useState} from "react";
 import Modal from "../Modal/Modal.tsx";
 
