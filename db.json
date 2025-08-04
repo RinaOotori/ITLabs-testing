@@ -13,6 +13,80 @@
       "company": "ООО Василёк",
       "group": "Клиент",
       "present": false
+    },
+    {
+      "fullName": "2",
+      "company": "2",
+      "group": "Прохожий",
+      "presence": false,
+      "present": true,
+      "id": "YhTNm6c"
+    },
+    {
+      "fullName": "в",
+      "company": "ыы",
+      "group": "Прохожий",
+      "presence": false,
+      "id": "W8KwK--"
+    },
+    {
+      "fullName": "sd",
+      "company": "d",
+      "group": "Прохожий",
+      "presence": false,
+      "id": "2GP4bNs"
+    },
+    {
+      "fullName": "g",
+      "company": "g",
+      "group": "Прохожий",
+      "presence": false,
+      "id": "ifemW-5"
+    },
+    {
+      "fullName": "d",
+      "company": "d",
+      "group": "Прохожий",
+      "presence": false,
+      "id": "JHo7xnS"
+    },
+    {
+      "fullName": "dff",
+      "company": "dff",
+      "group": "Прохожий",
+      "presence": false,
+      "id": "9-XiU4t"
+    },
+    {
+      "fullName": "dff",
+      "company": "dff",
+      "group": "Партнёр",
+      "presence": false,
+      "id": "z9wFFQB"
+    },
+    {
+      "fullName": "dff",
+      "company": "dff",
+      "group": "Партнёр",
+      "presence": false,
+      "present": true,
+      "id": "E7JmvD6"
+    },
+    {
+      "fullName": "dff",
+      "company": "dff",
+      "group": "Партнёр",
+      "presence": false,
+      "present": true,
+      "id": "El6H6YT"
+    },
+    {
+      "fullName": "dff",
+      "company": "dff",
+      "group": "Партнёр",
+      "presence": false,
+      "present": true,
+      "id": "lh-nCHj"
     }
   ]
 }

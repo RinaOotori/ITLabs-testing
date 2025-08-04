@@ -1,13 +1,23 @@
 import './Button.css'
+import * as React from "react";
 
-export default function Button({tittle, action}: { tittle: string, action: (value: boolean) => void }) {
+interface ButtonProps {
+    tittle: string,
+    type: "button" | "submit" | "reset" | undefined,
+    action: (flag: boolean) => void
+}
+
+const Button: React.FC<ButtonProps> = ({tittle, type, action})=> {
     return (
-        <button id='button' value={tittle}
-                onClick={(e) => {
-                    e.preventDefault();
+        <button id='button'
+                value={tittle}
+                type={type}
+                onClick={() => {
                     action(true);
                 }}>
             {tittle}
         </button>
     )
 }
+
+export default Button;

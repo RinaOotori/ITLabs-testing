@@ -1,0 +1,13 @@
+.modal_content_form{
+    display: block;
+    box-sizing: border-box;
+    margin-left: 20%;
+}
+
+.modal_content_form #buttons{
+    width: 100%;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: 2vw;
+    margin-bottom: 30px;
+}

@@ -23,11 +23,12 @@
     background-color: white;
     border-radius: 30px;
     width: 50vw;
-    height: 50vh;
     transform: scale(0.5);
     transition: 0.3s all;
     box-sizing: border-box;
     padding: 20px;
+    position: absolute;
+    top: 20%;
 }
 
 .modal_content.active{
@@ -47,4 +48,5 @@
 #close_button img:hover{
     cursor: pointer;
     opacity: 0.5;
+    rotate: 180deg;
 }
