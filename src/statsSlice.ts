@@ -5,23 +5,24 @@ interface StatsState {
     present: number,
     absent: number,
     clients: Client[],
+    filter: {searchQuery: string, presence: string}
 }
 
 const initialState: StatsState = {
     present: 0,
     absent: 0,
-    clients: [] as Client[]
+    clients: [] as Client[],
+    filter: {searchQuery: '', presence: ''}
 };
 
 export const statsSlice = createSlice({
         name: 'stats',
         initialState,
         reducers: {
-            setStats: (state, action: PayloadAction<{ clients: Client[], present: number, absent: number }>) => {
+            setStats: (state, action: PayloadAction<{ clients: Client[]}>) => {
                 state.clients = action.payload.clients
-                state.present = action.payload.present;
-                state.absent = action.payload.absent;
-
+                state.present = state.clients.filter((client) => client.present).length
+                state.absent = state.clients.filter((client) => !client.present).length
             },
             addNewClient: (state, action: PayloadAction<Client>) => {
                 state.clients.push(action.payload)
@@ -31,17 +32,22 @@ export const statsSlice = createSlice({
                     state.absent += 1
                 }
             },
-            updateClient: (state, action: PayloadAction<{id: string, data: Partial<Client> }>) => {
-                let previousVersionClient = state.clients.find(
-                    (client) => client.id === action.payload.id)
-                if(previousVersionClient) {
-                    previousVersionClient = {...previousVersionClient, ...action.payload.data}
-                    console.log(previousVersionClient)
-                }
+            updateClientStore: (state, action: PayloadAction<{id: string, data: Partial<Client> }>) => {
+                const { id, data } = action.payload;
+                state.clients = state.clients.map(client =>
+                    client.id === id ? { ...client, ...data } : client
+                );
+            },
+            deleteClientStore: (state, action: PayloadAction<string>) => {
+                state.clients = state.clients.filter((client) => client.id !== action.payload)
+            },
+            setFilter: (state, action: PayloadAction<{searchQuery: string, presence: string}>) => {
+                state.filter.searchQuery = action.payload.searchQuery
+                state.filter.presence = action.payload.presence
             }
         }
     }
 )
 
-export const {setStats, addNewClient, updateClient} = statsSlice.actions;
+export const {setStats, addNewClient, updateClientStore, deleteClientStore, setFilter} = statsSlice.actions;
 export default statsSlice.reducer;

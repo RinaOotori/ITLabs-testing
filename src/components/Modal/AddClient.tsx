@@ -7,6 +7,7 @@ import {useState} from "react";
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {addNewClient} from "../../statsSlice.ts";
+import {API_BASE_URL, VISITORS_ENDPOINT} from "../../config.ts";
 
 const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр']
 
@@ -23,15 +24,24 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
     })
     const dispatch = useDispatch()
 
+    function checkCorrectData(){
+        return data.fullName !== '' && data.company !== '' && data.group !== '';
+    }
+
     async function addClient() {
-        try {
-            await axios.post('http://localhost:3000/visitors', data, {headers: {'Content-Type': 'application/json'}})
-                .then((response) => {
-                    dispatch(addNewClient(response.data))
-                    setModalActive(false)
-                })
-        } catch (error) {
-            console.log('Ошибка при добавлении клиента: ', error)
+        if(checkCorrectData()){
+            try {
+                await axios.post(`${API_BASE_URL}${VISITORS_ENDPOINT}/`, data, {headers: {'Content-Type': 'application/json'}})
+                    .then((response) => {
+                        dispatch(addNewClient(response.data))
+                        setModalActive(false)
+                    })
+            } catch (error) {
+                console.log('Ошибка при добавлении клиента: ', error)
+            }
+        }
+        else {
+            alert('Есть незаполненные поля!')
         }
     }
 
@@ -73,7 +83,7 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
                 <Button tittle={'Добавить'}
                         type={'button'}
                         action={() => {
-                            addClient()
+                            addClient().then()
                         }}
                 />
                 <Button tittle={'Закрыть'}

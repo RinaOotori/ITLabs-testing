@@ -1,92 +1,25 @@
 {
   "visitors": [
     {
-      "id": "1",
       "fullName": "Иванов Иван Иванович",
       "company": "ООО Ромашка",
       "group": "Прохожий",
-      "present": true
+      "present": false,
+      "id": "1"
     },
     {
-      "id": "2",
       "fullName": "Петров Пётр Петрович",
       "company": "ООО Василёк",
       "group": "Клиент",
-      "present": false
-    },
-    {
-      "fullName": "2",
-      "company": "2",
-      "group": "Прохожий",
-      "presence": false,
       "present": true,
-      "id": "YhTNm6c"
+      "id": "2"
     },
     {
-      "fullName": "в",
-      "company": "ыы",
-      "group": "Прохожий",
-      "presence": false,
-      "id": "W8KwK--"
-    },
-    {
-      "fullName": "sd",
-      "company": "d",
-      "group": "Прохожий",
-      "presence": false,
-      "id": "2GP4bNs"
-    },
-    {
-      "fullName": "g",
-      "company": "g",
-      "group": "Прохожий",
-      "presence": false,
-      "id": "ifemW-5"
-    },
-    {
-      "fullName": "d",
-      "company": "d",
-      "group": "Прохожий",
-      "presence": false,
-      "id": "JHo7xnS"
-    },
-    {
-      "fullName": "dff",
-      "company": "dff",
-      "group": "Прохожий",
-      "presence": false,
-      "id": "9-XiU4t"
-    },
-    {
-      "fullName": "dff",
-      "company": "dff",
+      "fullName": "vvddcc112",
+      "company": "cxcx2",
       "group": "Партнёр",
-      "presence": false,
+      "present": true,
       "id": "z9wFFQB"
-    },
-    {
-      "fullName": "dff",
-      "company": "dff",
-      "group": "Партнёр",
-      "presence": false,
-      "present": true,
-      "id": "E7JmvD6"
-    },
-    {
-      "fullName": "dff",
-      "company": "dff",
-      "group": "Партнёр",
-      "presence": false,
-      "present": true,
-      "id": "El6H6YT"
-    },
-    {
-      "fullName": "dff",
-      "company": "dff",
-      "group": "Партнёр",
-      "presence": false,
-      "present": true,
-      "id": "lh-nCHj"
     }
   ]
 }

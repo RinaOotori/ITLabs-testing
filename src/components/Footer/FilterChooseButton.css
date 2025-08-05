@@ -1,4 +1,4 @@
-#filter_button{
+.filter_button{
     height: 42px;
     font-size: 20px;
     border: none;
@@ -10,12 +10,12 @@
     background-color: white;
 }
 
-#filter_button:hover{
+.filter_button:hover, .filter_button.active{
     background-color: var(--primary-color-filter-button);
     color: white;
 }
 
-#filter_button:focus{
+.filter_button:focus{
     background-color: var(--primary-color-filter-button);
     color: white;
 }
