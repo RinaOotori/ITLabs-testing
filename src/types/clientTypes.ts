@@ -1,5 +1,5 @@
 export interface Client {
-    id: number;
+    id: string;
     fullName: string;
     company: string;
     group: string;

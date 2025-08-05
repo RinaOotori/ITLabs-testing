@@ -1,4 +1,4 @@
-#button{
+#button {
     max-width: 200px;
     min-width: 200px;
     width: 50%;
@@ -9,15 +9,19 @@
     box-shadow: var(--primary-box-shadow);
 }
 
-#button[value="Добавить"]:hover, #button[value="Закрыть"]:hover{
+#button[value="Добавить"]:hover, #button[value="Закрыть"]:hover, #button[value="Сохранить"]:hover, #button[value="Удалить"]:hover {
     opacity: 0.7;
 }
 
-#button[value="Добавить"]{
+#button[value="Добавить"], #button[value="Сохранить"] {
     background-color: var(--primary-color-succsess-button);
 }
 
-#button[value="Закрыть"]{
+#button[value="Закрыть"] {
     background-color: var(--primary-color-close-button);
+}
+
+#button[value="Удалить"] {
+    background-color: var(--primary-color-delete-button);
 }
 

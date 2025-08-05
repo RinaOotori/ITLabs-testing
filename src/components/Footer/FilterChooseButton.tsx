@@ -1,7 +1,15 @@
 import './FilterChooseButton.css'
+import * as React from "react";
 
-export default function FilterChooseButton({tittle} : {tittle:string}) {
+interface FilterChooseButtonProps {
+    tittle: string,
+    onClick: () => void
+}
+
+const FilterChooseButton: React.FC<FilterChooseButtonProps> = ({tittle, onClick}) => {
     return (
-        <button id='filter_button'>{tittle}</button>
+        <button id='filter_button' onClick={onClick}>{tittle}</button>
     )
 }
+
+export default FilterChooseButton;

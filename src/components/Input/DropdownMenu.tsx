@@ -1,5 +1,5 @@
 import './DropdownMenu.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import * as React from "react";
 
 interface DropdownMenuProps{
@@ -9,9 +9,10 @@ interface DropdownMenuProps{
     onClick: (value: string) => void
 }
 const DropdownMenu: React.FC<DropdownMenuProps> = ({items, label, value, onClick})=> {
-    const defaultValue = 'Выбрать';
     const [isOpen, setOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(defaultValue);
+    const [selectedItem, setSelectedItem] = useState(value);
+
+    useEffect(() => {setSelectedItem(value)}, [value])
 
     const handleClick = (item: string) => {
         setSelectedItem(item);
@@ -23,7 +24,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({items, label, value, onClick
         <div className={isOpen ? 'dropdown active' : 'dropdown'}>
             <label>{label}</label>
             <div>
-                <span>{selectedItem === null ? value : selectedItem}</span>
+                <span>{selectedItem}</span>
                 <img src='../../../public/dropdown_icon.svg' alt='Выбрать'
                      className={isOpen ? 'dropdown_icon active' : 'dropdown_icon'} onClick={() => {
                     setOpen(!isOpen)

@@ -19,7 +19,7 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
         fullName: '',
         company: '',
         group: 'Прохожий',
-        presence: false
+        present: false
     })
     const dispatch = useDispatch()
 
@@ -43,15 +43,17 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
     };
 
     return (
-        <form className='modal_content_form'>
+        <div className='modal_content_form'>
             <InputField type={'text'}
                         label={'ФИО'}
                         required={true}
+                        value={data.fullName}
                         onChange={(value) => handleInputChange('fullName', value)}
             />
             <InputField type={'text'}
                         label={'Компания'}
                         required={true}
+                        value={data.company}
                         onChange={(value) => handleInputChange('company', value)}
             />
             <DropdownMenu items={groups}
@@ -62,19 +64,26 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
             <InputField type={'checkbox'}
                         label={'Присутствие'}
                         required={false}
-                        onChange={(value) => {handleInputChange('present', value)}}
+                        checked={data.present}
+                        onChange={(value) => {
+                            handleInputChange('present', value)
+                        }}
             />
             <div id='buttons'>
                 <Button tittle={'Добавить'}
                         type={'button'}
-                        action={() => {addClient()}}
+                        action={() => {
+                            addClient()
+                        }}
                 />
                 <Button tittle={'Закрыть'}
                         type={'button'}
-                        action={() => {setModalActive(false)}}
+                        action={() => {
+                            setModalActive(false)
+                        }}
                 />
             </div>
-        </form>
+        </div>
     )
 }
 

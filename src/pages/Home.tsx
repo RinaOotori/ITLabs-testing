@@ -1,21 +1,24 @@
 import './Home.css'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {setStats} from "../statsSlice.ts";
 import type {Client} from "../types/clientTypes.ts";
 import type {RootState} from "../store.ts";
+import Modal from "../components/Modal/Modal.tsx";
+import UpdateClient from "../components/Modal/UpdateClient.tsx";
 
 export default function Home() {
     const dispatch = useDispatch();
-    const clients = useSelector((state: RootState) => state.stats.clients);
+    const [changeModalActive, setChangeModalActive] = useState(false)
+    const [selectedClient, setSelectedClient] = useState<Client>({present: false, company: '', fullName: '', group: '', id: ''})
+    const {clients} = useSelector((state: RootState) => ({clients: state.stats.clients,}));
 
     useEffect(() => {
         axios
             .get<Client[]>('http://localhost:3000/visitors')
             .then((data) => {
                 const clientsData = data.data;
-                console.log(clients)
                 dispatch(setStats({
                     clients: clientsData, // Передаём весь массив клиентов
                     present: clientsData.filter((client) => client.present).length,
@@ -24,8 +27,16 @@ export default function Home() {
             })
             .catch((error) => console.error('Ошибка при загрузке клиентов:', error));
     }, [clients, dispatch]);
+
+    const handleRowClick = (client: Client) => {
+        setChangeModalActive(true)
+        setSelectedClient(client)
+    }
     return (
         <main>
+            <Modal active={changeModalActive} setActive={setChangeModalActive}>
+                <UpdateClient client={selectedClient} setModalActive={setChangeModalActive}/>
+            </Modal>
             <table>
                 <thead>
                 <tr>
@@ -38,15 +49,15 @@ export default function Home() {
                 </thead>
                 <tbody>
                 {
-                    clients.map(clients => {
+                    clients.map(client => {
                         return (
-                            <tr>
-                                <td>{clients['id']}</td>
-                                <td>{clients['fullName']}</td>
-                                <td>{clients['company']}</td>
-                                <td>{clients['group']}</td>
+                            <tr onClick={() => {handleRowClick(client)}}>
+                                <td>{client['id']}</td>
+                                <td>{client['fullName']}</td>
+                                <td>{client['company']}</td>
+                                <td>{client['group']}</td>
                                 <td>
-                                    <div id={!clients['present'] ? 'absent' : 'present'}></div>
+                                    <div id={!client['present'] ? 'absent' : 'present'}></div>
                                 </td>
                             </tr>
                         )

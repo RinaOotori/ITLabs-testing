@@ -2,7 +2,7 @@
     color: var(--primary-color-main-font);
     font-size: 26px;
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 140px auto;
     text-align: left;
     margin-bottom: 40px;
     justify-items: left;
