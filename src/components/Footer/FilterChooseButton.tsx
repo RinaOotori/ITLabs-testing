@@ -1,6 +1,7 @@
 import './FilterChooseButton.css'
 import * as React from "react";
 
+/* Кнопка фильтра */
 interface FilterChooseButtonProps {
     tittle: string,
     isActive: boolean,

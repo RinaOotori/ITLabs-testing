@@ -1,7 +1,15 @@
 import './Modal.css'
-import type {ReactNode} from "react";
+import {type ReactNode} from "react";
+import * as React from "react";
 
-export default function Modal({active, setActive, children}: { active: boolean, setActive: (value: boolean) => void, children: ReactNode }) {
+/* Стандартное модальное окно */
+interface ModalProps {
+    active: boolean,
+    setActive: (value: boolean) => void,
+    children: ReactNode // Содержимое окна
+}
+
+const Modal: React.FC<ModalProps> = ({active, setActive, children}) => {
     return (
         <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
             <div className={active ? 'modal_content active' : 'modal_content'}
@@ -14,3 +22,5 @@ export default function Modal({active, setActive, children}: { active: boolean, 
         </div>
     )
 }
+
+export default Modal

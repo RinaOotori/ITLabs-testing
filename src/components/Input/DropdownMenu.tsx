@@ -2,10 +2,11 @@ import './DropdownMenu.css'
 import {useEffect, useState} from "react";
 import * as React from "react";
 
+/* Выпадающее меню */
 interface DropdownMenuProps{
     items: string[],
     label: string,
-    value: string,
+    value: string, // Текущее значение
     onClick: (value: string) => void
 }
 const DropdownMenu: React.FC<DropdownMenuProps> = ({items, label, value, onClick})=> {

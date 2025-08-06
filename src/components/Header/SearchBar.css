@@ -1,11 +1,12 @@
 #search_bar{
-    width: 100%;
+    width: 300px;
     border: none;
     box-shadow: 0 1px 3px #c1c1c1;
     border-radius: 5px;
     padding: 19px;
-    margin-right: 5.66%;
+    margin-right: 30px;
     height: var(--primary-input-height);
+    margin-top: 30px;
 }
 
 #search_bar:focus{

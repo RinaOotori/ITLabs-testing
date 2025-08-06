@@ -1,11 +1,12 @@
 import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 import type {Client} from "./types/clientTypes.ts";
 
+/* Хранилище актуальных данных */
 interface StatsState {
     present: number,
     absent: number,
     clients: Client[],
-    filter: {searchQuery: string, presence: string}
+    filter: { searchQuery: string, presence: string }
 }
 
 const initialState: StatsState = {
@@ -19,7 +20,7 @@ export const statsSlice = createSlice({
         name: 'stats',
         initialState,
         reducers: {
-            setStats: (state, action: PayloadAction<{ clients: Client[]}>) => {
+            setStats: (state, action: PayloadAction<{ clients: Client[] }>) => {
                 state.clients = action.payload.clients
                 state.present = state.clients.filter((client) => client.present).length
                 state.absent = state.clients.filter((client) => !client.present).length
@@ -32,16 +33,16 @@ export const statsSlice = createSlice({
                     state.absent += 1
                 }
             },
-            updateClientStore: (state, action: PayloadAction<{id: string, data: Partial<Client> }>) => {
-                const { id, data } = action.payload;
+            updateClientStore: (state, action: PayloadAction<{ id: string, data: Partial<Client> }>) => {
+                const {id, data} = action.payload;
                 state.clients = state.clients.map(client =>
-                    client.id === id ? { ...client, ...data } : client
+                    client.id === id ? {...client, ...data} : client
                 );
             },
             deleteClientStore: (state, action: PayloadAction<string>) => {
                 state.clients = state.clients.filter((client) => client.id !== action.payload)
             },
-            setFilter: (state, action: PayloadAction<{searchQuery: string, presence: string}>) => {
+            setFilter: (state, action: PayloadAction<{ searchQuery: string, presence: string }>) => {
                 state.filter.searchQuery = action.payload.searchQuery
                 state.filter.presence = action.payload.presence
             }

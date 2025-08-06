@@ -9,9 +9,10 @@ import Modal from "../components/Modal/Modal.tsx";
 import UpdateClient from "../components/Modal/UpdateClient.tsx";
 import {API_BASE_URL, VISITORS_ENDPOINT} from "../config.ts";
 
+/* Начальная страница */
 export default function Home() {
     const dispatch = useDispatch();
-    const [isInitialized, setIsInitialized] = useState(false);
+    const [isInitialized, setIsInitialized] = useState(false); // Проверка инициализации для получения URL
     const [changeModalActive, setChangeModalActive] = useState(false)
     const [selectedClient, setSelectedClient] = useState<Client>({
         present: false,
@@ -27,12 +28,12 @@ export default function Home() {
         const params = new URLSearchParams(window.location.search)
         const initSearchQuery = params.get('fullName_like') || ''
         const initPresence = params.get('present') || ''
-        dispatch(setFilter({ searchQuery: initSearchQuery, presence: initPresence }));
+        dispatch(setFilter({searchQuery: initSearchQuery, presence: initPresence})); // Установка фильтров при перезагрузке страницы
         setIsInitialized(true)
     }, [dispatch]);
 
     useEffect(() => {
-        if(isInitialized) {
+        if (isInitialized) {
             const params = new URLSearchParams({'fullName_like': filters.searchQuery})
             if (filters.presence !== '') {
                 params.append('present', filters.presence)

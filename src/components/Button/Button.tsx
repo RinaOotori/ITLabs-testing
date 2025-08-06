@@ -1,6 +1,7 @@
 import './Button.css'
 import * as React from "react";
 
+/* Стандартная кнопка */
 interface ButtonProps {
     tittle: string,
     type: "button" | "submit" | "reset" | undefined,

@@ -9,8 +9,9 @@ import {useDispatch} from "react-redux";
 import {addNewClient} from "../../statsSlice.ts";
 import {API_BASE_URL, VISITORS_ENDPOINT} from "../../config.ts";
 
-const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр']
+const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр'] // Группы для DropdownMenu
 
+/* Содержимое Modal для добавления клиента */
 interface AddClientProps {
     setModalActive: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -19,17 +20,17 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
     const [data, setData] = useState({
         fullName: '',
         company: '',
-        group: 'Прохожий',
+        group: '',
         present: false
     })
     const dispatch = useDispatch()
 
-    function checkCorrectData(){
+    function checkCorrectData() {
         return data.fullName !== '' && data.company !== '' && data.group !== '';
     }
 
     async function addClient() {
-        if(checkCorrectData()){
+        if (checkCorrectData()) {
             try {
                 await axios.post(`${API_BASE_URL}${VISITORS_ENDPOINT}/`, data, {headers: {'Content-Type': 'application/json'}})
                     .then((response) => {
@@ -39,8 +40,7 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
             } catch (error) {
                 console.log('Ошибка при добавлении клиента: ', error)
             }
-        }
-        else {
+        } else {
             alert('Есть незаполненные поля!')
         }
     }
@@ -56,13 +56,11 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
         <div className='modal_content_form'>
             <InputField type={'text'}
                         label={'ФИО'}
-                        required={true}
                         value={data.fullName}
                         onChange={(value) => handleInputChange('fullName', value)}
             />
             <InputField type={'text'}
                         label={'Компания'}
-                        required={true}
                         value={data.company}
                         onChange={(value) => handleInputChange('company', value)}
             />
@@ -73,7 +71,6 @@ const AddClientFormComponent: React.FC<AddClientProps> = ({setModalActive}) => {
             />
             <InputField type={'checkbox'}
                         label={'Присутствие'}
-                        required={false}
                         checked={data.present}
                         onChange={(value) => {
                             handleInputChange('present', value)

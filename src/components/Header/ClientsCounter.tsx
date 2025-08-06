@@ -2,6 +2,7 @@ import type { RootState } from '../../store';
 import './ClientsCounter.css'
 import {useSelector} from "react-redux";
 
+/* Компонент для вывода количества присутствующих и отсутствующих посетителей */
 export default function ClientsCounter() {
     const stats = useSelector((state: RootState) => state.stats);
     return (
