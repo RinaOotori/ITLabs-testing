@@ -1,0 +1,125 @@
+import InputField from "../Input/InputField.tsx";
+import DropdownMenu from "../Input/DropdownMenu.tsx";
+import Button from "../Button/Button.tsx";
+import * as React from "react";
+import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import axios from "axios";
+import {updateClientStore, deleteClientStore} from "../../statsSlice.ts";
+import type {Client} from "../../types/clientTypes.ts";
+import {API_BASE_URL, VISITORS_ENDPOINT} from "../../config.ts";
+
+const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр'] // Группы для DropdownMenu
+
+/* Содержимое для Modals при изменении клиена */
+interface ChangeClientProps {
+    client: Client,
+    setModalActive: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const UpdateClient: React.FC<ChangeClientProps> = ({client, setModalActive}) => {
+    const [data, setData] = useState({
+        fullName: client.fullName,
+        company: client.company,
+        group: client.group,
+        present: client.present
+    })
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        setData({
+            fullName: client.fullName,
+            company: client.company,
+            group: client.group,
+            present: client.present
+        })
+    }, [client])
+
+    function checkCorrectData() {
+        return data.fullName !== '' && data.company !== '' && data.group !== '';
+    }
+
+    async function updateClient() {
+        if (checkCorrectData()) {
+            try {
+                await axios.put(`${API_BASE_URL}${VISITORS_ENDPOINT}/` + client.id, data, {headers: {'Content-Type': 'application/json'}})
+                    .then((response) => {
+                        dispatch(updateClientStore({id: client.id, data: response.data}))
+                        setModalActive(false)
+                    })
+            } catch (error) {
+                console.log('Ошибка при изменении клиента: ', error)
+            }
+        } else {
+            alert('Есть незаполненные поля!')
+        }
+    }
+
+    async function deleteClient() {
+        try {
+            await axios.delete(`${API_BASE_URL}${VISITORS_ENDPOINT}/` + client.id)
+                .then(() => {
+                    dispatch(deleteClientStore(client.id))
+                    setModalActive(false)
+                })
+        } catch (error) {
+            console.log('Ошибка при удалении клиента: ', error)
+        }
+    }
+
+    const handleInputChange = (property: string, value: string | boolean) => {
+        setData((prev) => ({
+            ...prev,
+            [property]: value,
+        }));
+    };
+
+    return (
+        <div className='modal_content_form'>
+            <InputField type={'text'}
+                        label={'ФИО'}
+                        value={data.fullName}
+                        onChange={(value) => handleInputChange('fullName', value)}
+            />
+            <InputField type={'text'}
+                        label={'Компания'}
+                        value={data.company}
+                        onChange={(value) => handleInputChange('company', value)}
+            />
+            <DropdownMenu items={groups}
+                          label={'Группа'}
+                          value={data.group}
+                          onClick={(value) => handleInputChange('group', value)}
+            />
+            <InputField type={'checkbox'}
+                        label={'Присутствие'}
+                        checked={data.present}
+                        onChange={(value) => {
+                            handleInputChange('present', value)
+                        }}
+            />
+            <div id='buttons'>
+                <Button tittle={'Сохранить'}
+                        type={'button'}
+                        action={() => {
+                            updateClient().then()
+                        }}
+                />
+                <Button tittle={'Удалить'}
+                        type={'button'}
+                        action={() => {
+                            deleteClient().then()
+                        }}
+                />
+                <Button tittle={'Закрыть'}
+                        type={'button'}
+                        action={() => {
+                            setModalActive(false)
+                        }}
+                />
+            </div>
+        </div>
+    )
+}
+
+export default UpdateClient;
