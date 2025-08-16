@@ -1,0 +1,14 @@
+.Button {
+    max-width: 200px;
+    min-width: 200px;
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+    height: var(--primary-input-height);
+    transition: 0.3s;
+    box-shadow: var(--primary-box-shadow);
+}
+
+.Button:hover {
+    opacity: 0.7;
+}

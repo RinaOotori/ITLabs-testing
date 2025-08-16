@@ -1,0 +1,8 @@
+.ModalContent-Buttons{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: min-content min-content;
+    gap: 1vw;
+    margin-bottom: 30px;
+}

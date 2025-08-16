@@ -1,0 +1,8 @@
+.Input_typeCheckbox{
+    height: 20px;
+    width: 20px;
+    border: none;
+    float: left;
+    margin: auto auto auto 0;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+.Header-ClientsCounter{
+    order: 999;
+    margin-left: auto;
+    font-size: 26px;
+    vertical-align: middle;
+    text-align: right;
+    color: var(--primary-color-main-font);
+    display: table-cell;
+    font-weight: bold;
+}

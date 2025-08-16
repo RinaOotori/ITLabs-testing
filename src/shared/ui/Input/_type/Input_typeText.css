@@ -1,0 +1,10 @@
+.Input_typeText {
+    border: none;
+    font-size: 20px;
+    border-radius: 2px;
+    box-shadow: var(--primary-box-shadow);
+    height: var(--primary-input-height);
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 5%;
+}

@@ -1,0 +1,11 @@
+.Header{
+    background-color: white;
+    height: 75px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 2048px;
+    min-width: 1024px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 30px;
+}

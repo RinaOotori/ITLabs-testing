@@ -1,0 +1,10 @@
+.Modal-CloseButtonIcon {
+    height: 100%;
+    transition: 0.3s;
+}
+
+.Modal-CloseButtonIcon:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    rotate: 180deg;
+}

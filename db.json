@@ -13,6 +13,20 @@
       "group": "Клиент",
       "present": true,
       "id": "2"
+    },
+    {
+      "fullName": "в",
+      "company": "в",
+      "group": "Партнёр",
+      "present": false,
+      "id": "BGzHZmD"
+    },
+    {
+      "fullName": "1",
+      "company": "1",
+      "group": "Партнёр",
+      "present": true,
+      "id": "RqtR0KK"
     }
   ]
 }

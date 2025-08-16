@@ -1,19 +1,19 @@
-import InputField from "../Input/InputField.tsx";
-import DropdownMenu from "../Input/DropdownMenu.tsx";
-import Button from "../Button/Button.tsx";
+import { Input } from "../../shared/ui/Input";
+import DropdownMenu from "../../shared/ui/Select/DropdownMenu.tsx";
+import {Button} from "../../shared/ui/Button";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import axios from "axios";
-import {updateClientStore, deleteClientStore} from "../../statsSlice.ts";
-import type {Client} from "../../types/clientTypes.ts";
-import {API_BASE_URL, VISITORS_ENDPOINT} from "../../config.ts";
+import {updateClientStore, deleteClientStore} from "../../app/store/statsSlice.ts";
+import type { IClient } from "../../entities/client";
+import {API_BASE_URL} from "../../shared/config/config.ts";
 
 const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр'] // Группы для DropdownMenu
 
 /* Содержимое для Modals при изменении клиена */
 interface ChangeClientProps {
-    client: Client,
+    client: IClient,
     setModalActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -42,7 +42,7 @@ const UpdateClient: React.FC<ChangeClientProps> = ({client, setModalActive}) => 
     async function updateClient() {
         if (checkCorrectData()) {
             try {
-                await axios.put(`${API_BASE_URL}${VISITORS_ENDPOINT}/` + client.id, data, {headers: {'Content-Type': 'application/json'}})
+                await axios.put(`${API_BASE_URL}/` + client.id, data, {headers: {'Content-Type': 'application/json'}})
                     .then((response) => {
                         dispatch(updateClientStore({id: client.id, data: response.data}))
                         setModalActive(false)
@@ -57,7 +57,7 @@ const UpdateClient: React.FC<ChangeClientProps> = ({client, setModalActive}) => 
 
     async function deleteClient() {
         try {
-            await axios.delete(`${API_BASE_URL}${VISITORS_ENDPOINT}/` + client.id)
+            await axios.delete(`${API_BASE_URL}/` + client.id)
                 .then(() => {
                     dispatch(deleteClientStore(client.id))
                     setModalActive(false)
@@ -76,43 +76,43 @@ const UpdateClient: React.FC<ChangeClientProps> = ({client, setModalActive}) => 
 
     return (
         <div className='modal_content_form'>
-            <InputField type={'text'}
-                        label={'ФИО'}
-                        value={data.fullName}
-                        onChange={(value) => handleInputChange('fullName', value)}
+            <Input type={'text'}
+                   label={'ФИО'}
+                   value={data.fullName}
+                   onChange={(value) => handleInputChange('fullName', value)}
             />
-            <InputField type={'text'}
-                        label={'Компания'}
-                        value={data.company}
-                        onChange={(value) => handleInputChange('company', value)}
+            <Input type={'text'}
+                   label={'Компания'}
+                   value={data.company}
+                   onChange={(value) => handleInputChange('company', value)}
             />
             <DropdownMenu items={groups}
                           label={'Группа'}
                           value={data.group}
                           onClick={(value) => handleInputChange('group', value)}
             />
-            <InputField type={'checkbox'}
-                        label={'Присутствие'}
-                        checked={data.present}
-                        onChange={(value) => {
+            <Input type={'checkbox'}
+                   label={'Присутствие'}
+                   checked={data.present}
+                   onChange={(value) => {
                             handleInputChange('present', value)
                         }}
             />
             <div id='buttons'>
                 <Button tittle={'Сохранить'}
-                        type={'button'}
+                        type={'Success'}
                         action={() => {
                             updateClient().then()
                         }}
                 />
                 <Button tittle={'Удалить'}
-                        type={'button'}
+                        type={'Danger'}
                         action={() => {
                             deleteClient().then()
                         }}
                 />
                 <Button tittle={'Закрыть'}
-                        type={'button'}
+                        type={'Info'}
                         action={() => {
                             setModalActive(false)
                         }}

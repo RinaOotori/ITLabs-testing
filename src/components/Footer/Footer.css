@@ -1,9 +1,0 @@
-footer {
-    height: 75px;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 26px;
-    color: var(--primary-color-main-font);
-    font-weight: bold;
-    margin-top: 30px;
-}
