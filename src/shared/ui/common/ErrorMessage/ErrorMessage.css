@@ -1,0 +1,17 @@
+.ErrorMessage {
+    font-weight: 400;
+    color: red;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .ErrorMessage {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .ErrorMessage {
+        font-size: 12px;
+    }
+}
