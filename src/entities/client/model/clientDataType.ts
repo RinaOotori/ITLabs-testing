@@ -1,15 +1,13 @@
-export interface IClient {
-    id: string;
+export interface IClientData {
     fullName: string;
     company: string;
     group: string;
     present: boolean;
 }
 
-export const createEmptyIClient = (): IClient => ({
-    id: '',
+export const createEmptyIClientData = (): IClientData => ({
     fullName: '',
     company: '',
-    group: '',
+    group: 'Выбрать',
     present: false
 })
