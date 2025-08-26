@@ -1,2 +1,8 @@
 export type { IClient } from './model/clientType.ts'
 export { getClients } from './api/getClients.ts'
+export { addClient } from './api/addClient.ts'
+export { updateClient } from './api/updateClient.ts'
+export { deleteClient } from './api/deleteClient.ts'
+export { createEmptyIClientData } from './model/clientDataType.ts'
+export type { IClientData } from './model/clientDataType.ts'
+export { createEmptyIClient } from './model/clientType.ts'

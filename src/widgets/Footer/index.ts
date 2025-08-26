@@ -1,0 +1,1 @@
+export { Footer } from './ui/common/Footer.tsx'
