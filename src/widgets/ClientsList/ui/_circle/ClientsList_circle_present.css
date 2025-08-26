@@ -1,0 +1,8 @@
+.ClientsList_circle_present {
+    border-radius: 50%;
+    background-color: var(--primary-color-present-visitor);
+    width: var(--primary-circles-size);
+    height: var(--primary-circles-size);
+    margin-left: auto;
+    margin-right: auto;
+}

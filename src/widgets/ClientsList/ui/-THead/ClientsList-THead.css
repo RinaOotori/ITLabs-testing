@@ -1,0 +1,17 @@
+.ClientsList-THead{
+    font-size: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+    .ClientsList-THead {
+        color: var(--primary-color-main-font);
+        border-bottom: 3px solid #E9E9E9;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ClientsList-THead {
+        color: var(--primary-dark-font-color);
+        border-bottom: 3px solid #5a3f30;
+    }
+}

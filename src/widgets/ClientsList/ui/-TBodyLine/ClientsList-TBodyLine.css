@@ -1,0 +1,20 @@
+.ClientsList-TBodyLine{
+    height: 60px;
+}
+
+.ClientsList-TBodyLine:hover{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (prefers-color-scheme: light) {
+    .ClientsList-TBodyLine:hover {
+        background-color: #f8f8f8;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ClientsList-TBodyLine:hover {
+        background-color: #1c1c1c;
+    }
+}

@@ -1,0 +1,8 @@
+.ClientsList_circle_absent {
+    border-radius: 50%;
+    background-color: var(--primary-color-absent-visitor);
+    width: var(--primary-circles-size);
+    height: var(--primary-circles-size);
+    margin-left: auto;
+    margin-right: auto;
+}

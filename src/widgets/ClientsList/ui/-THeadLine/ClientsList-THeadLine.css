@@ -1,0 +1,8 @@
+.ClientsList-THeadLine {
+    height: 35px;
+    text-align: left;
+}
+
+.ClientsList-THeadLine th:last-child {
+    text-align: center;
+}
