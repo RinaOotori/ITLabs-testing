@@ -1,0 +1,15 @@
+.ClientCard-GroupName{
+    font-weight: 600;
+}
+
+@media (prefers-color-scheme: light) {
+    .ClientCard-GroupName {
+        color: var(--primary-color-main-font);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ClientCard-GroupName {
+        color: var(--primary-dark-font-color);
+    }
+}

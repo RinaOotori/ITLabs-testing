@@ -1,0 +1,31 @@
+.ClientCard {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    line-height: 1em;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.ClientCard:hover {
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+    .ClientCard:hover {
+        background-color: #f8f8f8;
+    }
+    .ClientCard {
+        border-bottom: 3px solid #E9E9E9;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ClientCard:hover {
+        background-color: #1c1c1c;
+    }
+    .ClientCard {
+        border-bottom: 3px solid #5a3f30;
+    }
+}
