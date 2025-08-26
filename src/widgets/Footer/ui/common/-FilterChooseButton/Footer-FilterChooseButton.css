@@ -1,0 +1,33 @@
+.Footer-FilterButton{
+    height: 42px;
+    font-size: 20px;
+    border: none;
+    padding: 0 15px;
+    border-radius: 18px;
+    margin-left: 1%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: light) {
+    .Footer-FilterButton{
+        color: var(--primary-color-main-font);
+        background-color: white;
+    }
+
+    .Footer-FilterButton:hover, .Footer-FilterButton:focus{
+        background-color: var(--primary-color-filter-button);
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Footer-FilterButton{
+        color: var(--primary-dark-font-color);
+        background-color: var(--primary-dark-background-color);
+    }
+
+    .Footer-FilterButton:hover, .Footer-FilterButton:focus{
+        background-color: #323232;
+        color: white;
+    }
+}

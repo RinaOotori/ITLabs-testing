@@ -1,0 +1,13 @@
+@media (prefers-color-scheme: light) {
+    .Footer-FilterButton_active {
+        background-color: var(--primary-color-filter-button);
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Footer-FilterButton_active {
+        background-color: #323232;
+        color: white;
+    }
+}

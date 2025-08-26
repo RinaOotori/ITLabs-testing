@@ -1,0 +1,12 @@
+@media (min-width: 1025px) {
+    .Footer-Buttons {
+        display: inline;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Footer-Buttons {
+        width: 210px;
+        float: left;
+    }
+}
