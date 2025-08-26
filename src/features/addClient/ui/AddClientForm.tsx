@@ -1,44 +1,42 @@
-import './ModalContent.css'
-import './-Buttons/ModalContent-Buttons.css'
-import {Input} from "../../../shared/ui/Input";
-import {Button} from "../../../shared/ui/Button";
-import DropdownMenu from "../../../shared/ui/Select/DropdownMenu.tsx";
+import './-ContentButtons/Modal-ContentButtons.css'
+import {Input} from "../../../shared/ui/common/Input";
+import {Button} from "../../../shared/ui/common/Button";
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {addNewClient} from "../../../app/store/statsSlice.ts";
-import {addClient} from '../api/addClient.ts';
-
-const groups: string[] = ['Прохожий', 'Клиент', 'Партнёр'] // Группы для DropdownMenu
+import {addClient, createEmptyIClientData} from '../../../entities/client';
+import type {AddClientProps} from "../model/AddClientProps.ts";
+import {groups} from "../../../shared/model";
+import './AddClientForm.css'
+import {Select} from "../../../shared/ui/common/Select";
+import {validateForm, type ValidationErrors} from "../../../shared/model";
 
 /* Содержимое Modal для добавления клиента */
-interface AddClientProps {
-    setModalActive: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export const AddClientForm: React.FC<AddClientProps> = ({setModalActive}) => {
-    const [data, setData] = useState({
-        fullName: '',
-        company: '',
-        group: '',
-        present: false
-    })
+export const AddClientForm: React.FC<AddClientProps> = ({setModalActive, active}) => {
+    const [data, setData] = useState(createEmptyIClientData)
     const dispatch = useDispatch()
+    const [errors, setErrors] = useState<ValidationErrors>({});
 
-    function checkCorrectData() {
-        return data.fullName !== '' && data.company !== '' && data.group !== '';
-    }
+    useEffect(() => {
+        if (!active) {
+            setData(createEmptyIClientData)
+            setErrors({})
+        }
+    }, [active])
 
     function handleAddClient() {
-        if (checkCorrectData()) {
+        const newErrors = validateForm(data)
+        if (Object.keys(newErrors).length === 0) {
             addClient(data).then(response => {
-                if(response) {
+                if (response) {
                     dispatch(addNewClient(response.data))
+                    setData(createEmptyIClientData)
                     setModalActive(false)
                 }
             })
         } else {
-            alert('Есть незаполненные поля!')
+            setErrors(newErrors)
         }
     }
 
@@ -47,46 +45,51 @@ export const AddClientForm: React.FC<AddClientProps> = ({setModalActive}) => {
             ...prev,
             [property]: value,
         }));
+        setErrors((prev) => ({...prev, [property]: ''}));
     };
 
     return (
-        <div className='ModalContent'>
-            <Input type={'text'}
-                   label={'ФИО'}
-                   value={data.fullName}
-                   onChange={(value) => handleInputChange('fullName', value)}
-            />
-            <Input type={'text'}
-                   label={'Компания'}
-                   value={data.company}
-                   onChange={(value) => handleInputChange('company', value)}
-            />
-            <DropdownMenu items={groups}
-                          label={'Группа'}
-                          value={'Выбрать'}
-                          onClick={(value) => handleInputChange('group', value)}
-            />
-            <Input type={'checkbox'}
-                   label={'Присутствие'}
-                   checked={data.present}
-                   onChange={(value) => {
-                       handleInputChange('present', value)
-                   }}
-            />
-            <div className='ModalContent-Buttons'>
+        <>
+            <form className='Modal-Form'>
+                <Input type={'text'}
+                       label={'ФИО'}
+                       value={data.fullName}
+                       errorMessage={errors.fullName}
+                       onChange={(value) => handleInputChange('fullName', value)}
+                />
+                <Input type={'text'}
+                       label={'Компания'}
+                       value={data.company}
+                       errorMessage={errors.company}
+                       onChange={(value) => handleInputChange('company', value)}
+                />
+                <Select items={groups}
+                        label={'Группа'}
+                        value={data.group}
+                        errorMessage={errors.group}
+                        onClick={(value) => handleInputChange('group', value)}
+                />
+                <Input type={'checkbox'}
+                       label={'Присутствие'}
+                       checked={data.present}
+                       onChange={(value) => {
+                           handleInputChange('present', value)
+                       }}
+                />
+            </form>
+            <div className='Modal-ContentButtons'>
                 <Button tittle={'Добавить'}
-                        type={'Success'}
-                        action={() => {
-                            handleAddClient()
-                        }}
+                        style={'success'}
+                        action={() => handleAddClient()}
                 />
                 <Button tittle={'Закрыть'}
-                        type={'Danger'}
+                        style={'danger'}
                         action={() => {
+                            setErrors({})
                             setModalActive(false)
                         }}
                 />
             </div>
-        </div>
+        </>
     )
 }
