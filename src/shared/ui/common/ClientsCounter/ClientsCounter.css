@@ -1,0 +1,19 @@
+.ClientsCounter{
+    font-size: 26px;
+    text-align: right;
+    vertical-align: middle;
+    display: table-cell;
+    font-weight: bold;
+}
+
+@media (prefers-color-scheme: light) {
+    .ClientsCounter {
+        color: var(--primary-color-main-font);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .ClientsCounter {
+        color: var(--primary-dark-font-color);
+    }
+}

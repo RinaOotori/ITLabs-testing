@@ -1,0 +1,5 @@
+.Header-ClientsCounter{
+    float: right;
+    margin-left: auto;
+    align-items: flex-end;
+}

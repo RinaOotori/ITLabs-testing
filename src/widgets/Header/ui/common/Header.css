@@ -1,0 +1,20 @@
+.Header{
+    background-color: white;
+    height: 115px;
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+
+@media (prefers-color-scheme: light) {
+    .Header{
+        background-color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Header{
+        background-color: var(--primary-dark-background-color);
+    }
+}
