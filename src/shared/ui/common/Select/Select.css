@@ -1,0 +1,45 @@
+.Select:hover {
+    cursor: pointer;
+}
+
+.Select{
+    text-align: left;
+    justify-items: left;
+}
+
+@media (min-width: 1024px) {
+    .Select {
+        display: grid;
+        grid-template-columns: 140px auto;
+        gap: 10%;
+        margin-bottom: 40px;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .Select {
+        font-size: 26px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 429px) {
+    .Select {
+        font-size: 20px;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Select {
+        color: var(--primary-color-main-font);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Select {
+        color: var(--primary-dark-font-color);
+    }
+}

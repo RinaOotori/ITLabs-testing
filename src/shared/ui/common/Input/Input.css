@@ -1,0 +1,51 @@
+.Input {
+    text-align: left;
+    justify-items: left;
+    gap: 10%;
+    z-index: 10000;
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+    .Input {
+        font-size: 26px;
+        display: grid;
+        grid-template-columns: 140px auto;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .Input {
+        font-size: 26px;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .Input:has(.Input_type_text) {
+        flex-direction: column;
+    }
+
+    .Input:has(.Input_type_checkbox) {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 429px) {
+    .Input {
+        font-size: 20px;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Input {
+        color: var(--primary-color-main-font);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Input {
+        color: var(--primary-dark-font-color);
+    }
+}

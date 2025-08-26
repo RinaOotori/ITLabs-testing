@@ -1,0 +1,18 @@
+.SearchBar {
+    border: none;
+    border-radius: 5px;
+    padding: 19px;
+    height: var(--primary-input-height);
+}
+
+@media (prefers-color-scheme: light) {
+    .SearchBar {
+        box-shadow: 0 1px 3px #c1c1c1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .SearchBar {
+        box-shadow: var(--primary-dark-box-shadow);
+    }
+}

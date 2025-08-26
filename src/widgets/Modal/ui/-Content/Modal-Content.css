@@ -1,11 +1,23 @@
 .Modal-Content{
-    background-color: white;
-    border-radius: 30px;
-    width: 50vw;
-    transform: scale(0.5);
-    transition: 0.3s all;
+    display: block;
     box-sizing: border-box;
-    padding: 20px;
-    position: absolute;
-    top: 20%;
+}
+
+@media (min-width: 1024px) {
+    .Modal-Content{
+        margin-left: calc((50vw - 400px) / 2 + 4.5vw);
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 431px){
+    .Modal-Content{
+        margin-left: 2vw;
+    }
+}
+
+@media (max-width: 430px) {
+    .Modal-Content{
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

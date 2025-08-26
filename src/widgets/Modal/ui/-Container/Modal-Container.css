@@ -1,0 +1,39 @@
+.Modal-Container{
+    border-radius: 30px;
+    transform: scale(0.5);
+    transition: 0.3s all;
+    box-sizing: border-box;
+    padding: 20px;
+    position: absolute;
+    top: 20%;
+}
+
+@media (min-width: 1024px) {
+    .Modal-Container{
+        width: 70vw;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 431px){
+    .Modal-Container{
+        width: 80vw;
+    }
+}
+
+@media (max-width: 430px) {
+    .Modal-Container{
+        width: 99vw;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Modal-Container {
+        background-color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Modal-Container {
+        background-color: var(--primary-dark-background-color);
+    }
+}

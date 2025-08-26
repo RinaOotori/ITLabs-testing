@@ -1,11 +1,11 @@
-import './Header-SearchBar.css'
+import './SearchBar.css'
 import {useDispatch, useSelector} from "react-redux";
 import type {RootState} from "../../../../app/store/store.ts";
 import {setFilter} from "../../../../app/store/statsSlice.ts";
 import * as React from "react";
 
 /* Компонент поиска по имени */
-export function HeaderSearchBar() {
+export function SearchBar({classNames}: {classNames?: string}) {
     const dispatch = useDispatch();
     const {searchQuery, presence} = useSelector((state: RootState) => state.stats.filter);
 
@@ -15,7 +15,7 @@ export function HeaderSearchBar() {
 
     return (
         <input type='search'
-               className='Header-SearchBar'
+               className={`${classNames} SearchBar`}
                placeholder='Поиск по имени'
                value={searchQuery}
                onChange={handleSearchChange}/>

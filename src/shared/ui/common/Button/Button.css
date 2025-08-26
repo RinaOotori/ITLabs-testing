@@ -1,0 +1,37 @@
+.Button {
+    width: 200px;
+    border-radius: 5px;
+    color: white;
+    height: var(--primary-input-height);
+    transition: 0.3s;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.Button:hover {
+    opacity: 0.7;
+}
+
+@media (min-width: 1024px) {
+    .Button {
+        width: 250px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .Button {
+        width: 150px;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Button {
+        box-shadow: var(--primary-box-shadow);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Button {
+        box-shadow: var(--primary-dark-box-shadow);
+    }
+}

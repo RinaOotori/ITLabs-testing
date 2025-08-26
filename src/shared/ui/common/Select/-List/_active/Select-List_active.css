@@ -1,0 +1,41 @@
+.Select-List_active {
+    visibility: visible;
+    display: block;
+    margin: 0;
+    position: absolute;
+    border-radius: 2px;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media (min-width: 1024px) {
+    .Select-List_active {
+        width: 25vw;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 430px) {
+    .Select-List_active {
+        width: 90%;
+    }
+}
+
+@media (max-width: 429px) {
+    .Select-List_active {
+        width: 100%;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Select-List_active {
+        background-color: white;
+        box-shadow: 1px 3px 3px #c1c1c1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Select-List_active {
+        background-color: #434343;
+        box-shadow: var(--primary-dark-box-shadow);
+    }
+}

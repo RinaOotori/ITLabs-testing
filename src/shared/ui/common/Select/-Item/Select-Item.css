@@ -1,0 +1,33 @@
+.Select-Item{
+    padding: 5px 15px;
+    transition: 0.3s;
+
+}
+
+.Select-Item:hover, .Select-Item:active{
+    cursor: pointer;
+}
+
+@media (min-width: 430px) {
+    .Select-Item {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 429px) {
+    .Select-Item {
+        font-size: 16px;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .Select-Item:hover, .Select-Item:active{
+        background-color: #e6e6e6;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Select-Item:hover, .Select-Item:active{
+        background-color: #2e2e2e;
+    }
+}
